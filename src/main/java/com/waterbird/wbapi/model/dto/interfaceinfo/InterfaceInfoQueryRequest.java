@@ -1,26 +1,19 @@
-package com.waterbird.wbapi.model.dto.interfaceInfo;
+package com.waterbird.wbapi.model.dto.interfaceinfo;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableLogic;
+import com.waterbird.wbapi.common.PageRequest;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
-import java.util.Date;
-import java.util.List;
 
 /**
- * 更新请求
+ * 查询请求
  *
 
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
-public class InterfaceInfoUpdateRequest implements Serializable {
-    /**
-     * 主键
-     */
-    private Long id;
+public class InterfaceInfoQueryRequest extends PageRequest implements Serializable {
     /**
      * 接口名称
      */
@@ -56,4 +49,8 @@ public class InterfaceInfoUpdateRequest implements Serializable {
      */
     private String method;
 
+    /**
+     * 创建人
+     */
+    private Long userId;
 }

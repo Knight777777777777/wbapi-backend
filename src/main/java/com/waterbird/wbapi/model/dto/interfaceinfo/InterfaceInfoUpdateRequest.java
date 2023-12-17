@@ -1,19 +1,20 @@
-package com.waterbird.wbapi.model.dto.interfaceInfo;
+package com.waterbird.wbapi.model.dto.interfaceinfo;
 
-import com.waterbird.wbapi.common.PageRequest;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 
 /**
- * 查询请求
+ * 更新请求
  *
 
  */
-@EqualsAndHashCode(callSuper = true)
 @Data
-public class InterfaceInfoQueryRequest extends PageRequest implements Serializable {
+public class InterfaceInfoUpdateRequest implements Serializable {
+    /**
+     * 主键
+     */
+    private Long id;
     /**
      * 接口名称
      */
@@ -48,9 +49,9 @@ public class InterfaceInfoQueryRequest extends PageRequest implements Serializab
      * 请求类型
      */
     private String method;
-
     /**
-     * 创建人
+     * 请求参数
      */
-    private Long userId;
+    private  String requestParams;
+
 }

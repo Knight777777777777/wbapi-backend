@@ -1,4 +1,4 @@
-package com.waterbird.wbapi.model.dto.interfaceInfo;
+package com.waterbird.wbapi.model.dto.interfaceinfo;
 
 import lombok.Data;
 
@@ -39,5 +39,9 @@ public class InterfaceInfoAddRequest implements Serializable {
      * 请求类型
      */
     private String method;
+    /**
+     * 请求参数
+     */
+    private String requestParams;
 
 }

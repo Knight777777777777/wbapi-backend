@@ -1,6 +1,4 @@
 # 公共配置文件
-# @author <a href="https://github.com/liwaterbird">程序员鱼皮</a>
-# @from <a href="https://waterbird.icu">编程导航知识星球</a>
 spring:
   application:
     name: wbapi-backend
@@ -90,3 +88,7 @@ cos:
     secretKey: xxx
     region: xxx
     bucket: xxx
+wbapi:
+  client:
+    access-key: waterbird
+    secret-key: waterbird
