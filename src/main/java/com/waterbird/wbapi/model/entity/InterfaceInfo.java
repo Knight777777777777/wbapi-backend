@@ -43,6 +43,13 @@ public class InterfaceInfo implements Serializable {
      * 响应头
      */
     private String responseHeader;
+    /**
+     * 请求参数
+     * [
+     * 	    {"name": "username", "type": "string"}
+     * ]
+     */
+    private String requestParams;
 
     /**
      * 接口状态（0-关闭，1-开启）
@@ -58,13 +65,7 @@ public class InterfaceInfo implements Serializable {
      * 创建人
      */
     private Long userId;
-    /**
-     * 请求参数
-     * [
-     * 	    {"name": "username", "type": "string"}
-     * ]
-     */
-    private String requestParams;
+
 
     /**
      * 创建时间
