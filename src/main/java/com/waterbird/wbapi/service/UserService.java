@@ -1,7 +1,7 @@
 package com.waterbird.wbapi.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.waterbird.wbapi.model.entity.User;
+import com.waterbird.wbapicommon.model.entity.User;
 
 import javax.servlet.http.HttpServletRequest;
 

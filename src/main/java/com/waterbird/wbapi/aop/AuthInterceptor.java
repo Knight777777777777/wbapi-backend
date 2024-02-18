@@ -3,7 +3,7 @@ package com.waterbird.wbapi.aop;
 import com.waterbird.wbapi.annotation.AuthCheck;
 import com.waterbird.wbapi.common.ErrorCode;
 import com.waterbird.wbapi.exception.BusinessException;
-import com.waterbird.wbapi.model.entity.User;
+import com.waterbird.wbapicommon.model.entity.User;
 import com.waterbird.wbapi.model.enums.UserRoleEnum;
 import com.waterbird.wbapi.service.UserService;
 import javax.annotation.Resource;
@@ -55,10 +55,9 @@ public class AuthInterceptor {
                 throw new BusinessException(ErrorCode.NO_AUTH_ERROR);
             }
             // 必须有管理员权限
-            if (UserRoleEnum.ADMIN.equals(mustUserRoleEnum)) {
-                if (!mustRole.equals(userRole)) {
+            if (UserRoleEnum.ADMIN.equals(mustUserRoleEnum) && (!mustRole.equals(userRole))) {
                     throw new BusinessException(ErrorCode.NO_AUTH_ERROR);
-                }
+
             }
         }
         // 通过权限校验，放行

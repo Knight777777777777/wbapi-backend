@@ -6,12 +6,10 @@ import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.waterbird.wbapi.common.ErrorCode;
 import com.waterbird.wbapi.exception.BusinessException;
-import com.waterbird.wbapi.exception.ThrowUtils;
 import com.waterbird.wbapi.mapper.UserInterfaceInfoMapper;
-import com.waterbird.wbapi.model.entity.UserInterfaceInfo;
 import com.waterbird.wbapi.service.UserInterfaceInfoService;
 
-import org.apache.commons.lang3.StringUtils;
+import com.waterbird.wbapicommon.model.entity.UserInterfaceInfo;
 import org.springframework.stereotype.Service;
 
 /**
@@ -25,24 +23,17 @@ public class UserInterfaceInfoServiceImpl extends ServiceImpl<UserInterfaceInfoM
 
     @Override
     public void validUserInterfaceInfo(UserInterfaceInfo userinterfaceInfo, boolean add) {
-        Long id = userinterfaceInfo.getId();
         Long userId = userinterfaceInfo.getUserId();
         Long interfaceInfoId = userinterfaceInfo.getInterfaceInfoId();
-        Integer totalNum = userinterfaceInfo.getTotalNum();
         Integer leftNum = userinterfaceInfo.getLeftNum();
-        Integer status = userinterfaceInfo.getStatus();
-        Date createTime = userinterfaceInfo.getCreateTime();
-        Date updateTime = userinterfaceInfo.getUpdateTime();
-        Integer isDelete = userinterfaceInfo.getIsDelete();
         if (userinterfaceInfo == null) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
 
         // 创建时，参数不能为空
-        if (add) {
-            if (interfaceInfoId <= 0 || userId <= 0) {
+        if (add && (interfaceInfoId <= 0 || userId <= 0)) {
                 throw new BusinessException(ErrorCode.PARAMS_ERROR, "接口或用户不存在");
-            }
+
         }
         if (leftNum <= 0) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR, "剩余次数不能小于0");

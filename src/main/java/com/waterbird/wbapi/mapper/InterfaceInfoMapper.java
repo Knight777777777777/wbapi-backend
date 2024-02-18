@@ -1,7 +1,7 @@
 package com.waterbird.wbapi.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.waterbird.wbapi.model.entity.InterfaceInfo;
+import com.waterbird.wbapicommon.model.entity.InterfaceInfo;
 
 
 /**

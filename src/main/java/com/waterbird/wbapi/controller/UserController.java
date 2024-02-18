@@ -9,7 +9,7 @@ import com.waterbird.wbapi.common.ErrorCode;
 import com.waterbird.wbapi.common.ResultUtils;
 import com.waterbird.wbapi.exception.BusinessException;
 import com.waterbird.wbapi.model.dto.user.*;
-import com.waterbird.wbapi.model.entity.User;
+import com.waterbird.wbapicommon.model.entity.User;
 import com.waterbird.wbapi.model.vo.UserVO;
 import com.waterbird.wbapi.service.UserService;
 import lombok.extern.slf4j.Slf4j;

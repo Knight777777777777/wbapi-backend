@@ -5,7 +5,7 @@ import com.waterbird.wbapi.common.ErrorCode;
 import com.waterbird.wbapi.exception.BusinessException;
 import com.waterbird.wbapi.exception.ThrowUtils;
 import com.waterbird.wbapi.mapper.InterfaceInfoMapper;
-import com.waterbird.wbapi.model.entity.InterfaceInfo;
+import com.waterbird.wbapicommon.model.entity.InterfaceInfo;
 import com.waterbird.wbapi.service.InterfaceInfoService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
@@ -22,18 +22,12 @@ public class InterfaceInfoServiceImpl extends ServiceImpl<InterfaceInfoMapper, I
     implements InterfaceInfoService {
     @Override
     public void validInterfaceInfo(InterfaceInfo interfaceInfo, boolean add) {
-     Long id = interfaceInfo.getId();
      String name = interfaceInfo.getName();
      String description = interfaceInfo.getDescription();
      String url = interfaceInfo.getUrl();
      String requestHeader = interfaceInfo.getRequestHeader();
      String responseHeader = interfaceInfo.getResponseHeader();
-     Integer status = interfaceInfo.getStatus();
      String method = interfaceInfo.getMethod();
-     Long userId = interfaceInfo.getUserId();
-     Date createTime = interfaceInfo.getCreateTime();
-     Date updateTime = interfaceInfo.getUpdateTime();
-     Integer isDelete = interfaceInfo.getIsDelete();
 
         if (interfaceInfo == null) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);

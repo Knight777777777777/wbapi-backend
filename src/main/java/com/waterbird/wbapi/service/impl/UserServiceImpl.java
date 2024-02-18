@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.waterbird.wbapi.common.ErrorCode;
 import com.waterbird.wbapi.exception.BusinessException;
-import com.waterbird.wbapi.model.entity.User;
+import com.waterbird.wbapicommon.model.entity.User;
 import com.waterbird.wbapi.service.UserService;
 
 import com.waterbird.wbapi.mapper.UserMapper;
