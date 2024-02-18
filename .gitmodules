@@ -6,3 +6,7 @@
 	url  = https://gitee.com/lc1105897090/wbapi-interface
 	path = wbapi-interface
 
+[submodule "wbapi-gateway"]
+	url  = https://gitee.com/lc1105897090/wbapi-gateway
+	path = wbapi-gateway
+
