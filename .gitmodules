@@ -2,3 +2,7 @@
 	url  = https://gitee.com/lc1105897090/wb-api-sdk
 	path = wb-api-sdk
 
+[submodule "wbapi-interface"]
+	url  = https://gitee.com/lc1105897090/wbapi-interface
+	path = wbapi-interface
+
