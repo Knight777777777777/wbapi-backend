@@ -1,0 +1,4 @@
+[submodule "wb-api-sdk"]
+	url  = https://gitee.com/lc1105897090/wb-api-sdk
+	path = wb-api-sdk
+
