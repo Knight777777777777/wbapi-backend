@@ -215,14 +215,15 @@ public class InterfaceInfoController {
         long size = interfaceInfoQueryRequest.getPageSize();
         String sortField = interfaceInfoQueryRequest.getSortField();
         String sortOrder = interfaceInfoQueryRequest.getSortOrder();
+        // description 需支持模糊搜索  先获取 description 字段 置空
         String description = interfaceInfoQuery.getDescription();
-        // description 需支持模糊搜索
         interfaceInfoQuery.setDescription(null);
         // 限制爬虫
         if (size > 50) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
         QueryWrapper<InterfaceInfo> queryWrapper = new QueryWrapper<>(interfaceInfoQuery);
+        // 模糊查询
         queryWrapper.like(StringUtils.isNotBlank(description), "description", description);
         queryWrapper.orderBy(StringUtils.isNotBlank(sortField),
                 sortOrder.equals(CommonConstant.SORT_ORDER_ASC), sortField);
@@ -304,6 +305,7 @@ public class InterfaceInfoController {
     @PostMapping("/invoke")
     public BaseResponse<Object> invokeInterfaceInfo(@RequestBody InterfaceInfoInvokeRequest interfaceInfoInvokeRequest,
                                                     HttpServletRequest request) {
+        // 校验是否为空
         if (interfaceInfoInvokeRequest == null || interfaceInfoInvokeRequest.getId() <= 0) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
@@ -320,6 +322,7 @@ public class InterfaceInfoController {
         User loginUser = userService.getLoginUser(request);
         String accessKey = loginUser.getAccessKey();
         String secretKey = loginUser.getSecretKey();
+        // 签名认证
         WbApiClient tempClient = new WbApiClient(accessKey, secretKey);
         Gson gson = new Gson();
         com.waterbird.wbapisdk.model.User user = gson.fromJson(userRequestParams, com.waterbird.wbapisdk.model.User.class);

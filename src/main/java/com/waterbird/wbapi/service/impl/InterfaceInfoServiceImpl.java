@@ -20,6 +20,11 @@ import java.util.Date;
 @Service
 public class InterfaceInfoServiceImpl extends ServiceImpl<InterfaceInfoMapper, InterfaceInfo>
     implements InterfaceInfoService {
+    /**
+     * 接口信息的校验
+     * @param interfaceInfo
+     * @param add
+     */
     @Override
     public void validInterfaceInfo(InterfaceInfo interfaceInfo, boolean add) {
      String name = interfaceInfo.getName();
@@ -28,7 +33,7 @@ public class InterfaceInfoServiceImpl extends ServiceImpl<InterfaceInfoMapper, I
      String requestHeader = interfaceInfo.getRequestHeader();
      String responseHeader = interfaceInfo.getResponseHeader();
      String method = interfaceInfo.getMethod();
-
+        // 创建时，参数不能为空
         if (interfaceInfo == null) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
