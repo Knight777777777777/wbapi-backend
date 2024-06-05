@@ -1,12 +1,12 @@
 [submodule "wb-api-sdk"]
-	url  = https://gitee.com/lc1105897090/wb-api-sdk
+	url  = https://github.com/Knight777777777777/wb-api-sdk
 	path = wb-api-sdk
 
 [submodule "wbapi-interface"]
-	url  = https://gitee.com/lc1105897090/wbapi-interface
+	url  = https://github.com/Knight777777777777/wbapi-interface
 	path = wbapi-interface
 
 [submodule "wbapi-gateway"]
-	url  = https://gitee.com/lc1105897090/wbapi-gateway
+	url  = https://github.com/Knight777777777777/wbapi-gateway
 	path = wbapi-gateway
 
