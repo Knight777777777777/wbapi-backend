@@ -6,16 +6,28 @@ import lombok.EqualsAndHashCode;
 /**
  * 接口信息封装视图
  *
-
  */
-@EqualsAndHashCode(callSuper = true)
 @Data
 public class InterfaceInfoVO extends InterfaceInfo {
 
     /**
-     * 调用次数
+     * 统计每个接口被用户调用的总数
      */
     private Integer totalNum;
 
-    private static final long serialVersionUID = 1L;
+
+    /**
+     * 计费规则（元/条）
+     */
+    private Double charging;
+
+    /**
+     * 计费Id
+     */
+    private Long chargingId;
+
+    /**
+     * 接口剩余可调用次数
+     */
+    private String avaliableCalls;
 }

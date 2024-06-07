@@ -1,10 +1,12 @@
 package com.waterbird.wbapicommon.model.entity;
 
-import com.baomidou.mybatisplus.annotation.*;
-import lombok.Data;
-
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 import java.util.Date;
+import lombok.Data;
 
 /**
  * 接口信息
@@ -43,11 +45,17 @@ public class InterfaceInfo implements Serializable {
      * 响应头
      */
     private String responseHeader;
+
+    /**
+     * 参数示例
+     *  [
+     *        {"name": "username", "type": "string"}
+     *  ]
+     */
+    private String parameterExample;
+
     /**
      * 请求参数
-     * [
-     * 	    {"name": "username", "type": "string"}
-     * ]
      */
     private String requestParams;
 
@@ -66,7 +74,6 @@ public class InterfaceInfo implements Serializable {
      */
     private Long userId;
 
-
     /**
      * 创建时间
      */
@@ -80,8 +87,12 @@ public class InterfaceInfo implements Serializable {
     /**
      * 是否删除(0-未删, 1-已删)
      */
-    @TableLogic
     private Integer isDelete;
+
+    /**
+     * sdk
+     */
+    private String sdk;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

@@ -18,4 +18,13 @@ public interface InnerUserInterfaceInfoService{
      * 从数据库中查询用户调用接口记录
      */
     UserInterfaceInfo getUserInterfaceInfo(long interfaceInfoId,long userId);
+
+    /**
+     * 是否还有调用次数
+     *
+     * @param userId          用户id
+     * @param interfaceInfoId 接口id
+     * @return boolean
+     */
+    boolean hasInvokeNum(long userId, long interfaceInfoId);
 }

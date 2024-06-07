@@ -29,7 +29,7 @@ public class DemoServiceImpl implements DemoService {
 
     @Override
     public String sayHello2(String name) {
-        return "yupi";
+        return "waterbird";
     }
 
 
