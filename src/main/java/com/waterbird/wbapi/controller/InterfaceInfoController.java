@@ -110,7 +110,7 @@ public class InterfaceInfoController {
             throw new BusinessException(ErrorCode.NOT_FOUND_ERROR);
         }
         // 仅本人或管理员可删除
-        if (!oldInterfaceInfo.getUserId().equals(user.getId()) && !userService.isAdmin(request)) {
+        if (!oldInterfaceInfo.getUserId().equals(user.getId()) && !userService.isAdmin(user)) {
             throw new BusinessException(ErrorCode.NO_AUTH_ERROR);
         }
         boolean b = interfaceInfoService.removeById(id);
@@ -141,7 +141,7 @@ public class InterfaceInfoController {
 
         for (InterfaceInfo interfaceInfo : interfaceInfos) {
             // 检查权限
-            if (!interfaceInfo.getUserId().equals(user.getId()) && !userService.isAdmin(request)) {
+            if (!interfaceInfo.getUserId().equals(user.getId()) && !userService.isAdmin(user)) {
                 throw new BusinessException(ErrorCode.NO_AUTH_ERROR);
             }
         }
@@ -176,7 +176,7 @@ public class InterfaceInfoController {
             throw new BusinessException(ErrorCode.NOT_FOUND_ERROR);
         }
         // 仅本人或管理员可修改
-        if (!oldInterfaceInfo.getUserId().equals(user.getId()) && !userService.isAdmin(request)) {
+        if (!oldInterfaceInfo.getUserId().equals(user.getId()) && !userService.isAdmin(user)) {
             throw new BusinessException(ErrorCode.NO_AUTH_ERROR);
         }
         boolean result = interfaceInfoService.updateById(interfaceInfo);

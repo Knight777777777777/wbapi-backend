@@ -9,6 +9,7 @@ import com.waterbird.wbapi.common.ErrorCode;
 import com.waterbird.wbapi.common.ResultUtils;
 import com.waterbird.wbapi.exception.BusinessException;
 import com.waterbird.wbapi.model.dto.user.*;
+import com.waterbird.wbapi.model.vo.LoginUserVO;
 import com.waterbird.wbapicommon.model.entity.User;
 import com.waterbird.wbapi.model.vo.UserVO;
 import com.waterbird.wbapi.service.UserService;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -63,10 +65,11 @@ public class UserController {
      *
      * @param userLoginRequest
      * @param request
+     * @param response
      * @return
      */
     @PostMapping("/login")
-    public BaseResponse<User> userLogin(@RequestBody UserLoginRequest userLoginRequest, HttpServletRequest request) {
+    public BaseResponse<LoginUserVO> userLogin(@RequestBody UserLoginRequest userLoginRequest, HttpServletRequest request, HttpServletResponse response) {
         if (userLoginRequest == null) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
@@ -75,8 +78,8 @@ public class UserController {
         if (StringUtils.isAnyBlank(userAccount, userPassword)) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
-        User user = userService.userLogin(userAccount, userPassword, request);
-        return ResultUtils.success(user);
+        LoginUserVO loginUserVO = userService.userLogin(userAccount, userPassword, request, response);
+        return ResultUtils.success(loginUserVO);
     }
 
     /**
@@ -86,11 +89,11 @@ public class UserController {
      * @return
      */
     @PostMapping("/logout")
-    public BaseResponse<Boolean> userLogout(HttpServletRequest request) {
+    public BaseResponse<Boolean> userLogout(HttpServletRequest request,HttpServletResponse response) {
         if (request == null) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
-        boolean result = userService.userLogout(request);
+        boolean result = userService.userLogout(request,response);
         return ResultUtils.success(result);
     }
 
