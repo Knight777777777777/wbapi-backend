@@ -212,7 +212,7 @@ public class InterfaceInfoController {
         userInterfaceInfoQueryWrapper.eq("interfaceInfoId", id);
         UserInterfaceInfo userInterfaceInfo = userInterfaceInfoService.getOne(userInterfaceInfoQueryWrapper);
         if (userInterfaceInfo != null) {
-            InterfaceInfoVO.setavailableCalls(userInterfaceInfo.getLeftNum().toString());
+            InterfaceInfoVO.setAvailableCalls(userInterfaceInfo.getLeftNum().toString());
         }
 
         return ResultUtils.success(InterfaceInfoVO);
