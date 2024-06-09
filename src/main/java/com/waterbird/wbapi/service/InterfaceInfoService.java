@@ -2,7 +2,8 @@ package com.waterbird.wbapi.service;
 
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.waterbird.wbapicommon.model.entity.InterfaceInfo;
+import com.waterbird.wbapicommon.entity.InterfaceInfo;
+
 
 /**
 * @author lcccccccc

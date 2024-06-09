@@ -1,10 +1,13 @@
 package com.waterbird.wbapi.service.impl;
 
+
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+
 import com.waterbird.wbapi.mapper.InterfaceChargingMapper;
 import com.waterbird.wbapi.service.InterfaceChargingService;
-import com.waterbird.wbapicommon.model.entity.InterfaceCharging;
+import com.waterbird.wbapicommon.entity.InterfaceCharging;
 import org.springframework.stereotype.Service;
+
 
 /**
 * @author WaterBird
@@ -13,7 +16,8 @@ import org.springframework.stereotype.Service;
 */
 @Service
 public class InterfaceChargingServiceImpl extends ServiceImpl<InterfaceChargingMapper, InterfaceCharging>
-    implements InterfaceChargingService{
+    implements InterfaceChargingService {
+
 
 }
 

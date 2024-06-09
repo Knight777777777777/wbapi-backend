@@ -4,20 +4,20 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.waterbird.wbapi.mapper.InterfaceChargingMapper">
 
-    <resultMap id="BaseResultMap" type="com.waterbird.wbapicommon.model.entity.InterfaceCharging">
+    <resultMap id="BaseResultMap" type="com.waterbird.wbapicommon.entity.InterfaceCharging">
             <id property="id" column="id" jdbcType="BIGINT"/>
             <result property="interfaceId" column="interfaceId" jdbcType="BIGINT"/>
-            <result property="userId" column="userId" jdbcType="BIGINT"/>
             <result property="charging" column="charging" jdbcType="FLOAT"/>
-            <result property="avaliableCalls" column="avaliableCalls" jdbcType="VARCHAR"/>
+            <result property="availableCalls" column="availableCalls" jdbcType="VARCHAR"/>
+            <result property="userId" column="userId" jdbcType="BIGINT"/>
             <result property="createTime" column="createTime" jdbcType="TIMESTAMP"/>
             <result property="updateTime" column="updateTime" jdbcType="TIMESTAMP"/>
-            <result property="isDeleted" column="isDeleted" jdbcType="TINYINT"/>
+            <result property="isDelete" column="isDelete" jdbcType="TINYINT"/>
     </resultMap>
 
     <sql id="Base_Column_List">
-        id,interfaceId,userId,
-        charging,avaliableCalls,createTime,
-        updateTime,isDeleted
+        id,interfaceId,charging,
+        availableCalls,userId,createTime,
+        updateTime,isDelete
     </sql>
 </mapper>

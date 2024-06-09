@@ -7,7 +7,15 @@ import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.waterbird.wbapi.mapper.InterfaceInfoMapper;
 import com.waterbird.wbapi.mapper.UserInterfaceInfoMapper;
 import com.waterbird.wbapi.mapper.UserMapper;
+import com.waterbird.wbapi.model.dto.userinterfaceinfo.UpdateUserInterfaceInfoDTO;
+import com.waterbird.wbapi.service.InterfaceChargingService;
+import com.waterbird.wbapi.service.UserInterfaceInfoService;
 import com.waterbird.wbapicommon.common.ErrorCode;
+import com.waterbird.wbapicommon.entity.InterfaceCharging;
+import com.waterbird.wbapicommon.entity.InterfaceInfo;
+import com.waterbird.wbapicommon.entity.User;
+import com.waterbird.wbapicommon.exception.BusinessException;
+import com.waterbird.wbapicommon.service.ApiBackendService;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.dubbo.config.annotation.DubboService;
 
@@ -36,7 +44,11 @@ public class ApiBackendServiceImpl implements ApiBackendService {
     @Resource
     private InterfaceChargingService interfaceChargingService;
 
-
+    /**
+     * 获取调用的用户
+     * @param accessKey
+     * @return
+     */
     @Override
     public User getInvokeUser(String accessKey) {
 
@@ -49,6 +61,12 @@ public class ApiBackendServiceImpl implements ApiBackendService {
         return userMapper.selectOne(queryWrapper);
     }
 
+    /**
+     * 获取接口信息
+     * @param url
+     * @param method
+     * @return
+     */
     @Override
     public InterfaceInfo getInterFaceInfo(String url, String method) {
         if (StringUtils.isBlank(url) || StringUtils.isBlank(method)){
@@ -61,21 +79,43 @@ public class ApiBackendServiceImpl implements ApiBackendService {
         return interfaceInfoMapper.selectOne(queryWrapper);
     }
 
+    /**
+     * 调用接口计数
+     * @param userId
+     * @param interfaceInfoId
+     * @return
+     */
     @Override
     public boolean invokeCount(long userId, long interfaceInfoId) {
         return userInterfaceInfoService.invokeCount(userId,interfaceInfoId);
     }
 
+    /**
+     * 获取用户对该接口剩余调用次数
+     * @param userId
+     * @param interfaceInfoId
+     * @return
+     */
     @Override
     public int getLeftInvokeCount(long userId, long interfaceInfoId) {
         return userInterfaceInfoService.getLeftInvokeCount(userId,interfaceInfoId);
     }
 
+    /**
+     * 根据id获取接口
+     * @param interfaceId
+     * @return
+     */
     @Override
     public InterfaceInfo getInterfaceById(long interfaceId) {
         return interfaceInfoMapper.selectById(interfaceId);
     }
 
+    /**
+     * 根据id获取接口剩余调用次数（库存）
+     * @param interfaceId
+     * @return
+     */
     @Override
     public int getInterfaceStockById(long interfaceId) {
         QueryWrapper<InterfaceCharging> queryWrapper = new QueryWrapper<>();
@@ -84,26 +124,45 @@ public class ApiBackendServiceImpl implements ApiBackendService {
         if (interfaceCharging == null){
             throw new BusinessException(ErrorCode.SYSTEM_ERROR,"接口不存在");
         }
-        return Integer.parseInt(interfaceCharging.getAvailablePieces());
+        return Integer.parseInt(interfaceCharging.getAvailableCalls());
     }
 
+    /**
+     * 更新接口剩余调用次数（库存）
+     * @param interfaceId
+     * @param num
+     * @return
+     */
     @Override
     public boolean updateInterfaceStock(long interfaceId,Integer num) {
         UpdateWrapper<InterfaceCharging> updateWrapper = new UpdateWrapper<>();
-        updateWrapper.setSql("availablePieces = availablePieces - "+num)
-                .eq("interfaceId",interfaceId).gt("availablePieces",num);
+        updateWrapper.setSql("availableCalls = availableCalls - "+num)
+                .eq("interfaceId",interfaceId).gt("availableCalls",num);
 
         return interfaceChargingService.update(updateWrapper);
     }
 
+    /**
+     * 恢复接口库存
+     * @param interfaceId
+     * @param num
+     * @return
+     */
     @Override
     public boolean recoverInterfaceStock(long interfaceId, Integer num) {
         UpdateWrapper<InterfaceCharging> updateWrapper = new UpdateWrapper<>();
-        updateWrapper.setSql("availablePieces = availablePieces + "+num)
+        updateWrapper.setSql("availableCalls = availableCalls + "+num)
                 .eq("interfaceId",interfaceId);
         return interfaceChargingService.update(updateWrapper);
     }
 
+    /**
+     * 更新用户调用接口次数
+     * @param userId
+     * @param interfaceId
+     * @param num
+     * @return
+     */
     @Override
     public boolean updateUserInterfaceInvokeCount(long userId, long interfaceId, int num) {
         UpdateUserInterfaceInfoDTO userInterfaceInfoDTO = new UpdateUserInterfaceInfoDTO();

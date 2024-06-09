@@ -25,19 +25,19 @@ public class InterfaceCharging implements Serializable {
     private Long interfaceId;
 
     /**
-     * 用户id
-     */
-    private Long userId;
-
-    /**
-     * 价格
+     * 计费规则（元/条）
      */
     private Double charging;
 
     /**
-     * 用户名
+     * 接口剩余可调用次数
      */
-    private String avaliableCalls;
+    private String availableCalls;
+
+    /**
+     * 创建人
+     */
+    private Long userId;
 
     /**
      * 创建时间
@@ -50,10 +50,10 @@ public class InterfaceCharging implements Serializable {
     private Date updateTime;
 
     /**
-     * 是否删除(0-未删, 1-已删)
+     * 是否删除(0-删除 1-正常)
      */
     @TableLogic
-    private Integer isDeleted;
+    private Integer isDelete;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

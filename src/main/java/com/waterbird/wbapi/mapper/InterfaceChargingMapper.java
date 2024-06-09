@@ -1,7 +1,7 @@
 package com.waterbird.wbapi.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.waterbird.wbapicommon.model.entity.InterfaceCharging;
+import com.waterbird.wbapicommon.entity.InterfaceCharging;
 
 /**
 * @author WaterBird

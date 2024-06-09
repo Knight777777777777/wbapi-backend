@@ -5,7 +5,7 @@ import com.waterbird.wbapi.common.ErrorCode;
 import com.waterbird.wbapi.exception.BusinessException;
 import com.waterbird.wbapi.exception.ThrowUtils;
 import com.waterbird.wbapi.mapper.InterfaceInfoMapper;
-import com.waterbird.wbapicommon.model.entity.InterfaceInfo;
+import com.waterbird.wbapicommon.entity.InterfaceInfo;
 import com.waterbird.wbapi.service.InterfaceInfoService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;

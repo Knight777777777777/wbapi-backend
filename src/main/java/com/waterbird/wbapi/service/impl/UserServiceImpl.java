@@ -20,7 +20,7 @@ import com.waterbird.wbapi.model.vo.UserVO;
 import com.waterbird.wbapi.utils.FileUploadUtil;
 import com.waterbird.wbapi.utils.SqlUtils;
 import com.waterbird.wbapicommon.common.JwtUtils;
-import com.waterbird.wbapicommon.model.entity.User;
+import com.waterbird.wbapicommon.entity.User;
 import com.waterbird.wbapi.service.UserService;
 
 import com.waterbird.wbapi.mapper.UserMapper;

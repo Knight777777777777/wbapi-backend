@@ -16,13 +16,13 @@ import com.waterbird.wbapi.model.vo.InterfaceInfoVO;
 import com.waterbird.wbapi.service.InterfaceChargingService;
 import com.waterbird.wbapi.service.UserInterfaceInfoService;
 import com.waterbird.wbapicommon.common.JwtUtils;
-import com.waterbird.wbapicommon.model.entity.InterfaceCharging;
-import com.waterbird.wbapicommon.model.entity.InterfaceInfo;
-import com.waterbird.wbapicommon.model.entity.User;
+import com.waterbird.wbapicommon.entity.InterfaceCharging;
+import com.waterbird.wbapicommon.entity.InterfaceInfo;
+import com.waterbird.wbapicommon.entity.User;
 import com.waterbird.wbapi.model.enums.InterfaceInfoStatusEnum;
 import com.waterbird.wbapi.service.InterfaceInfoService;
 import com.waterbird.wbapi.service.UserService;
-import com.waterbird.wbapicommon.model.entity.UserInterfaceInfo;
+import com.waterbird.wbapicommon.entity.UserInterfaceInfo;;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.core.io.ClassPathResource;
@@ -212,7 +212,7 @@ public class InterfaceInfoController {
         userInterfaceInfoQueryWrapper.eq("interfaceInfoId", id);
         UserInterfaceInfo userInterfaceInfo = userInterfaceInfoService.getOne(userInterfaceInfoQueryWrapper);
         if (userInterfaceInfo != null) {
-            InterfaceInfoVO.setAvaliableCalls(userInterfaceInfo.getLeftNum().toString());
+            InterfaceInfoVO.setavailableCalls(userInterfaceInfo.getLeftNum().toString());
         }
 
         return ResultUtils.success(InterfaceInfoVO);

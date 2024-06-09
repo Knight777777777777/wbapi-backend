@@ -6,8 +6,8 @@ import com.waterbird.wbapi.model.dto.user.UserQueryRequest;
 import com.waterbird.wbapi.model.dto.user.UserUpdateRequest;
 import com.waterbird.wbapi.model.vo.LoginUserVO;
 import com.waterbird.wbapi.model.vo.UserDevKeyVO;
-import com.waterbird.wbapicommon.model.entity.User;
 import com.waterbird.wbapi.model.vo.UserVO;
+import com.waterbird.wbapicommon.entity.User;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;

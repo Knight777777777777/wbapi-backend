@@ -60,21 +60,6 @@ public class User implements Serializable {
     private String userRole;
 
     /**
-     * 用户调用标识
-     */
-    private String accessKey;
-
-    /**
-     * 密钥
-     */
-    private String secretKey;
-
-    /**
-     * 邮箱
-     */
-    private String email;
-
-    /**
      * 创建时间
      */
     private Date createTime;
@@ -89,6 +74,26 @@ public class User implements Serializable {
      */
     @TableLogic
     private Integer isDelete;
+
+    /**
+     * ak
+     */
+    private String accessKey;
+
+    /**
+     * sk
+     */
+    private String secretKey;
+
+    /**
+     * 手机号码
+     */
+    private String phone;
+
+    /**
+     * QQ邮箱
+     */
+    private String email;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

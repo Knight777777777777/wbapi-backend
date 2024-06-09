@@ -1,9 +1,7 @@
 package com.waterbird.wbapicommon.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
+
 import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
@@ -27,7 +25,7 @@ public class InterfaceInfo implements Serializable {
     private String name;
 
     /**
-     * 描述
+     * 接口描述
      */
     private String description;
 
@@ -35,6 +33,16 @@ public class InterfaceInfo implements Serializable {
      * 接口地址
      */
     private String url;
+
+    /**
+     * 参数示例
+     */
+    private String parameterExample;
+
+    /**
+     * 请求类型
+     */
+    private String method;
 
     /**
      * 请求头
@@ -47,12 +55,30 @@ public class InterfaceInfo implements Serializable {
     private String responseHeader;
 
     /**
-     * 参数示例
-     *  [
-     *        {"name": "username", "type": "string"}
-     *  ]
+     * 接口状态 0 关闭，1启用
      */
-    private String parameterExample;
+    private Integer status;
+
+    /**
+     * 逻辑删除 0 删除，1正常
+     */
+    @TableLogic
+    private Integer isDelete;
+
+    /**
+     *
+     */
+    private Date createTime;
+
+    /**
+     *
+     */
+    private Date updateTime;
+
+    /**
+     * 创建人id
+     */
+    private Long userId;
 
     /**
      * 请求参数
@@ -60,37 +86,7 @@ public class InterfaceInfo implements Serializable {
     private String requestParams;
 
     /**
-     * 接口状态（0-关闭，1-开启）
-     */
-    private Integer status;
-
-    /**
-     * 请求类型
-     */
-    private String method;
-
-    /**
-     * 创建人
-     */
-    private Long userId;
-
-    /**
-     * 创建时间
-     */
-    private Date createTime;
-
-    /**
-     * 更新时间
-     */
-    private Date updateTime;
-
-    /**
-     * 是否删除(0-未删, 1-已删)
-     */
-    private Integer isDelete;
-
-    /**
-     * sdk
+     * 接口对应的SDK类路径
      */
     private String sdk;
 

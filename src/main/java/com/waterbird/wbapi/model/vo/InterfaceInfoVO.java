@@ -1,6 +1,6 @@
 package com.waterbird.wbapi.model.vo;
 
-import com.waterbird.wbapicommon.model.entity.InterfaceInfo;
+import com.waterbird.wbapicommon.entity.InterfaceInfo;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 /**
@@ -29,5 +29,5 @@ public class InterfaceInfoVO extends InterfaceInfo {
     /**
      * 接口剩余可调用次数
      */
-    private String avaliableCalls;
+    private String availableCalls;
 }

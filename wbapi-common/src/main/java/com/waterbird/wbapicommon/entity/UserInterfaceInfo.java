@@ -8,9 +8,10 @@ import java.util.Date;
 
 /**
  * 用户调用接口关系
+ *
  * @TableName user_interface_info
  */
-@TableName(value ="user_interface_info")
+@TableName(value = "user_interface_info")
 @Data
 public class UserInterfaceInfo implements Serializable {
     /**
@@ -20,27 +21,33 @@ public class UserInterfaceInfo implements Serializable {
     private Long id;
 
     /**
-     * 调用用户 id
+     * 用户id
      */
     private Long userId;
 
     /**
-     * 接口 id
+     * 调用接口id
      */
     private Long interfaceInfoId;
 
     /**
-     * 总调用次数
+     * 接口的总调用次数
      */
     private Integer totalNum;
 
     /**
-     * 剩余调用次数
+     * 接口剩余调用次数
      */
     private Integer leftNum;
 
     /**
-     * 0-正常，1-禁用
+     * 逻辑删除 0 删除 1 正常
+     */
+    @TableLogic
+    private Integer isDelete;
+
+    /**
+     * 0 禁止调用 1 允许调用
      */
     private Integer status;
 
@@ -55,10 +62,9 @@ public class UserInterfaceInfo implements Serializable {
     private Date updateTime;
 
     /**
-     * 是否删除(0-未删, 1-已删)
+     * 乐观锁版本号
      */
-    @TableLogic
-    private Integer isDelete;
+    private Integer version;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
