@@ -1,5 +1,5 @@
 package com.waterbird.wbapicommon.service;
-import com.waterbird.wbapicommon.model.entity.User;
+import com.waterbird.wbapicommon.entity.User;
 
 
 /**
@@ -9,9 +9,9 @@ import com.waterbird.wbapicommon.model.entity.User;
 */
 public interface InnerUserService {
     /**
-     * 数据库查询是否已经分配给用户密钥
-     * @param accessKey
+     * 根据用户id获取用户信息
+     * @param userId
      * @return
      */
-    User getInvokeUser(String accessKey);
+    User getUserById(Long userId);
 }

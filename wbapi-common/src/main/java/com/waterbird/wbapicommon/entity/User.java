@@ -1,4 +1,4 @@
-package com.waterbird.wbapicommon.model.entity;
+package com.waterbird.wbapicommon.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;

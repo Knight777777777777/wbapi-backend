@@ -23,7 +23,6 @@ import com.waterbird.wbapi.model.enums.InterfaceInfoStatusEnum;
 import com.waterbird.wbapi.service.InterfaceInfoService;
 import com.waterbird.wbapi.service.UserService;
 import com.waterbird.wbapicommon.model.entity.UserInterfaceInfo;
-import com.waterbird.wbapisdk.client.WbApiClient;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.core.io.ClassPathResource;
@@ -58,8 +57,6 @@ public class InterfaceInfoController {
 
     @Resource
     private UserService userService;
-    @Resource
-    private WbApiClient wbApiClient;
 
 
     // region 增删改查
@@ -406,12 +403,12 @@ public class InterfaceInfoController {
     private Object invokeInterfaceInfo(String classPath, String methodName, String userRequestParams,
                                        String accessKey, String secretKey) {
         try {
+            // 动态加载指定类
             Class<?> clientClazz = Class.forName(classPath);
             // 1. 获取构造器，参数为ak,sk
             Constructor<?> binApiClientConstructor = clientClazz.getConstructor(String.class, String.class);
             // 2. 构造出客户端
             Object apiClient = binApiClientConstructor.newInstance(accessKey, secretKey);
-
             // 3. 找到要调用的方法
             Method[] methods = clientClazz.getMethods();
             for (Method method : methods) {
