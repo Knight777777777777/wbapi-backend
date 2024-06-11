@@ -1,5 +1,5 @@
 package com.waterbird.wbapicommon.service;
-import com.waterbird.wbapicommon.entity.User;
+import com.waterbird.wbapicommon.model.entity.User;
 
 
 /**

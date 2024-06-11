@@ -18,7 +18,7 @@ CREATE TABLE `interface_info`
     `requestHeader`    text CHARACTER SET utf8 COLLATE utf8_general_ci         NULL COMMENT '请求头',
     `responseHeader`   text CHARACTER SET utf8 COLLATE utf8_general_ci         NULL COMMENT '响应头',
     `status`           tinyint(0)                                              NULL DEFAULT 1 COMMENT '接口状态 0 关闭，1启用',
-    `isDelete`         int(0)                                                  NULL DEFAULT 1 COMMENT '逻辑删除 0 删除，1正常',
+    `isDelete`         int(0)                                                  NULL DEFAULT 0 COMMENT '逻辑删除 0 正常，1删除',
     `createTime`       datetime(0)                                             NULL DEFAULT CURRENT_TIMESTAMP(0),
     `updateTime`       datetime(0)                                             NULL DEFAULT CURRENT_TIMESTAMP(0),
     `userId`           bigint(0)                                               NULL DEFAULT NULL comment '创建人id',
@@ -64,7 +64,7 @@ CREATE TABLE `user`
     `userRole`     varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci  NOT NULL DEFAULT 'user' COMMENT '用户角色：user/admin/ban',
     `createTime`   datetime(0)                                              NOT NULL DEFAULT CURRENT_TIMESTAMP(0) COMMENT '创建时间',
     `updateTime`   datetime(0)                                              NOT NULL DEFAULT CURRENT_TIMESTAMP(0) ON UPDATE CURRENT_TIMESTAMP(0) COMMENT '更新时间',
-    `isDelete`     tinyint(0)                                               NOT NULL DEFAULT 1 COMMENT '是否删除',
+    `isDelete`     tinyint(0)                                               NOT NULL DEFAULT 0 COMMENT '是否删除  0 正常，1删除',
     `accessKey`    varchar(512) CHARACTER SET utf8 COLLATE utf8_general_ci  NOT NULL COMMENT 'ak',
     `secretKey`    varchar(512) CHARACTER SET utf8 COLLATE utf8_general_ci  NOT NULL COMMENT 'sk',
     `phone`        char(11) CHARACTER SET utf8 COLLATE utf8_general_ci      NULL     DEFAULT NULL COMMENT '手机号码',
@@ -98,7 +98,7 @@ CREATE TABLE `user_interface_info`
     `interfaceInfoId` bigint(0)   NULL DEFAULT NULL COMMENT '调用接口id',
     `totalNum`        int(0)      NULL DEFAULT 0 COMMENT '接口的总调用次数',
     `leftNum`         int(0)      NULL DEFAULT NULL COMMENT '接口剩余调用次数',
-    `isDelete`        int(0)      NULL DEFAULT 1 COMMENT '逻辑删除 0 删除 1 正常',
+    `isDelete`        int(0)      NULL DEFAULT 0 COMMENT '逻辑删除 0 正常，1删除',
     `status`          int(0)      NULL DEFAULT 1 COMMENT '0 禁止调用 1 允许调用',
     `createTime`      datetime(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0) COMMENT '创建时间',
     `updateTime`      datetime(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0) COMMENT '更新时间',
@@ -136,7 +136,7 @@ CREATE TABLE `interface_charging`
     `userId`          bigint(0)                                               NOT NULL COMMENT '创建人',
     `createTime`      datetime(0)                                             NOT NULL DEFAULT CURRENT_TIMESTAMP(0) COMMENT '创建时间',
     `updateTime`      datetime(0)                                             NOT NULL DEFAULT CURRENT_TIMESTAMP(0) ON UPDATE CURRENT_TIMESTAMP(0) COMMENT '更新时间',
-    `isDelete`        tinyint(0)                                              NOT NULL DEFAULT 1 COMMENT '是否删除(0-删除 1-正常)',
+    `isDelete`        tinyint(0)                                              NOT NULL DEFAULT 0 COMMENT '是否删除(0 正常，1删除)',
     PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB
   AUTO_INCREMENT = 3

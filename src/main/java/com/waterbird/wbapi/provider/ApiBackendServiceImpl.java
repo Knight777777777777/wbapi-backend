@@ -5,15 +5,14 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 
 import com.waterbird.wbapi.mapper.InterfaceInfoMapper;
-import com.waterbird.wbapi.mapper.UserInterfaceInfoMapper;
 import com.waterbird.wbapi.mapper.UserMapper;
 import com.waterbird.wbapi.model.dto.userinterfaceinfo.UpdateUserInterfaceInfoDTO;
 import com.waterbird.wbapi.service.InterfaceChargingService;
 import com.waterbird.wbapi.service.UserInterfaceInfoService;
 import com.waterbird.wbapicommon.common.ErrorCode;
-import com.waterbird.wbapicommon.entity.InterfaceCharging;
-import com.waterbird.wbapicommon.entity.InterfaceInfo;
-import com.waterbird.wbapicommon.entity.User;
+import com.waterbird.wbapicommon.model.entity.InterfaceCharging;
+import com.waterbird.wbapicommon.model.entity.InterfaceInfo;
+import com.waterbird.wbapicommon.model.entity.User;
 import com.waterbird.wbapicommon.exception.BusinessException;
 import com.waterbird.wbapicommon.service.ApiBackendService;
 import org.apache.commons.lang3.StringUtils;
@@ -38,8 +37,6 @@ public class ApiBackendServiceImpl implements ApiBackendService {
     @Resource
     private InterfaceInfoMapper interfaceInfoMapper;
 
-    @Resource
-    private UserInterfaceInfoMapper userInterfaceInfoMapper;
 
     @Resource
     private InterfaceChargingService interfaceChargingService;
@@ -63,6 +60,7 @@ public class ApiBackendServiceImpl implements ApiBackendService {
 
     /**
      * 获取接口信息
+     *
      * @param url
      * @param method
      * @return
@@ -103,6 +101,7 @@ public class ApiBackendServiceImpl implements ApiBackendService {
 
     /**
      * 根据id获取接口
+     *
      * @param interfaceId
      * @return
      */

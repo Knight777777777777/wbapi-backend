@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.waterbird.wbapi.model.dto.userinterfaceinfo.UpdateUserInterfaceInfoDTO;
 import com.waterbird.wbapi.model.vo.InterfaceInfoVO;
 import com.waterbird.wbapi.model.vo.UserInterfaceInfoVO;
-import com.waterbird.wbapicommon.entity.UserInterfaceInfo;
+import com.waterbird.wbapicommon.model.entity.UserInterfaceInfo;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;

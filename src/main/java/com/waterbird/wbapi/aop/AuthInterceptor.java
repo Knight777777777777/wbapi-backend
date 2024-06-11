@@ -3,7 +3,7 @@ package com.waterbird.wbapi.aop;
 import com.waterbird.wbapi.annotation.AuthCheck;
 import com.waterbird.wbapi.common.ErrorCode;
 import com.waterbird.wbapi.exception.BusinessException;
-import com.waterbird.wbapicommon.entity.User;
+import com.waterbird.wbapicommon.model.entity.User;
 import com.waterbird.wbapi.model.enums.UserRoleEnum;
 import com.waterbird.wbapi.service.UserService;
 import javax.annotation.Resource;

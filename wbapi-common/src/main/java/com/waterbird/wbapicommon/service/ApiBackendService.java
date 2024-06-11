@@ -1,8 +1,9 @@
 package com.waterbird.wbapicommon.service;
 
 
-import com.waterbird.wbapicommon.entity.InterfaceInfo;
-import com.waterbird.wbapicommon.entity.User;
+import com.waterbird.wbapicommon.model.entity.User;
+import com.waterbird.wbapicommon.model.entity.InterfaceInfo;
+
 
 /**
  * 接口管理系统的公共远程调用接口
@@ -20,11 +21,12 @@ public interface ApiBackendService {
 
     /**
      * 根据接口的url和接口的请求方式获取调用接口详情
+     *
      * @param url
      * @param method
      * @return
      */
-    InterfaceInfo getInterFaceInfo(String url, String method);
+    com.waterbird.wbapicommon.model.entity.InterfaceInfo getInterFaceInfo(String url, String method);
 
 
 

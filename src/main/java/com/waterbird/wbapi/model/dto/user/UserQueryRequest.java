@@ -1,5 +1,6 @@
 package com.waterbird.wbapi.model.dto.user;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.waterbird.wbapi.common.PageRequest;
 import java.io.Serializable;
 import lombok.Data;
@@ -42,6 +43,22 @@ public class UserQueryRequest extends PageRequest implements Serializable {
      * 用户角色：user/admin/ban
      */
     private String userRole;
+
+    private String phoneNum;
+
+    /**
+     * 创建时间
+     */
+    @JsonFormat(shape=JsonFormat.Shape.STRING,pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
+    private String createTime;
+
+    /**
+     * 更新时间
+     */
+    @JsonFormat(shape=JsonFormat.Shape.STRING,pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
+    private String updateTime;
+
+
 
     private static final long serialVersionUID = 1L;
 }

@@ -1,4 +1,4 @@
-package com.waterbird.wbapicommon.entity;
+package com.waterbird.wbapicommon.model.entity;
 
 
 import lombok.Data;

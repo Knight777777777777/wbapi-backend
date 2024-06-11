@@ -146,7 +146,7 @@
         <dependency>
             <groupId>com.waterbird</groupId>
             <artifactId>wbapi-common</artifactId>
-            <version>0.0.2</version>
+            <version>0.0.3</version>
         </dependency>
         <!-- 阿里云oss依赖 -->
         <dependency>
@@ -169,6 +169,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-amqp</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.13.4.1</version>
+        </dependency>
+
     </dependencies>
 
     <build>

@@ -1,6 +1,6 @@
 package com.waterbird.wbapi.model.vo;
 
-import com.waterbird.wbapicommon.entity.UserInterfaceInfo;
+import com.waterbird.wbapicommon.model.entity.UserInterfaceInfo;
 import lombok.Data;
 
 @Data

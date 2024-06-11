@@ -1,4 +1,4 @@
-package com.waterbird.wbapicommon.vo;
+package com.waterbird.wbapicommon.model.vo;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;

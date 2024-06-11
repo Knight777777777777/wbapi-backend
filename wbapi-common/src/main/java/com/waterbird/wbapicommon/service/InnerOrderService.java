@@ -1,6 +1,6 @@
 package com.waterbird.wbapicommon.service;
 
-import com.waterbird.wbapicommon.entity.Order;
+import com.waterbird.wbapicommon.model.entity.Order;
 
 import java.util.List;
 

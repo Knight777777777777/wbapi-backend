@@ -1,7 +1,7 @@
 package com.waterbird.wbapi.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.waterbird.wbapicommon.entity.InterfaceCharging;
+import com.waterbird.wbapicommon.model.entity.InterfaceCharging;
 
 
 /**

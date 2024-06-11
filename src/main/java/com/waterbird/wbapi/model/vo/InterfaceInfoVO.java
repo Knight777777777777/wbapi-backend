@@ -1,6 +1,6 @@
 package com.waterbird.wbapi.model.vo;
 
-import com.waterbird.wbapicommon.entity.InterfaceInfo;
+import com.waterbird.wbapicommon.model.entity.InterfaceInfo;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 /**

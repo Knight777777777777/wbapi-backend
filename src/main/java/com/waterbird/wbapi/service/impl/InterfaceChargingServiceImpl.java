@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 
 import com.waterbird.wbapi.mapper.InterfaceChargingMapper;
 import com.waterbird.wbapi.service.InterfaceChargingService;
-import com.waterbird.wbapicommon.entity.InterfaceCharging;
+import com.waterbird.wbapicommon.model.entity.InterfaceCharging;
 import org.springframework.stereotype.Service;
 
 

@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.waterbird.wbapi.mapper.UserInterfaceInfoMapper">
 
-    <resultMap id="BaseResultMap" type="com.waterbird.wbapicommon.entity.UserInterfaceInfo">
+    <resultMap id="BaseResultMap" type="com.waterbird.wbapicommon.model.entity.UserInterfaceInfo">
             <id property="id" column="id" jdbcType="BIGINT"/>
             <result property="userId" column="userId" jdbcType="BIGINT"/>
             <result property="interfaceInfoId" column="interfaceInfoId" jdbcType="BIGINT"/>
@@ -24,5 +24,5 @@
         version
     </sql>
     <select id="listTopInterfaceInfo" resultType="com.waterbird.wbapi.model.vo.UserInterfaceInfoAnalysisVO"></select>
-    <select id="listTopInvokeInterfaceInfo" resultType="com.waterbird.wbapicommon.entity.UserInterfaceInfo"></select>
+    <select id="listTopInvokeInterfaceInfo" resultType="com.waterbird.wbapicommon.model.entity.UserInterfaceInfo"></select>
 </mapper>

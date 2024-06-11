@@ -18,9 +18,9 @@ import com.waterbird.wbapi.service.InterfaceInfoService;
 import com.waterbird.wbapi.service.UserInterfaceInfoService;
 
 import com.waterbird.wbapi.service.UserService;
-import com.waterbird.wbapicommon.entity.InterfaceInfo;
-import com.waterbird.wbapicommon.entity.User;
-import com.waterbird.wbapicommon.entity.UserInterfaceInfo;;
+import com.waterbird.wbapicommon.model.entity.InterfaceInfo;
+import com.waterbird.wbapicommon.model.entity.User;
+import com.waterbird.wbapicommon.model.entity.UserInterfaceInfo;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

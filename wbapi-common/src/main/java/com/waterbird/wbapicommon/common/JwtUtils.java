@@ -14,7 +14,7 @@ public class JwtUtils {
 
     //常量
     public static final long EXPIRE = 1000 * 60 * 60 * 24; //token过期时间
-    public static final String APP_SECRET = "ukc8BDbRigUDaY6pZFfWus2jADOLPHO"; //秘钥
+    public static final String APP_SECRET = "ukc8BDbRigUDaY6pZFfWus2jZWLPHO"; //秘钥
 
     //生成token字符串的方法
     public static String getJwtToken(Long id, String userName){
@@ -23,7 +23,6 @@ public class JwtUtils {
                 //1.JWT头部分
                 .setHeaderParam("typ", "JWT")           //typ属性表示令牌的类型，JWT令牌统一写为JWT
                 .setHeaderParam("alg", "HS256")         //alg属性表示签名使用的算法，默认为HMAC SHA256（写为HS256）
-
                 //2.JWT有效载荷部分
 //               iss：发行人
 //               exp：到期时间
@@ -38,7 +37,6 @@ public class JwtUtils {
                 //设置token主体部分(也属于有效载荷部分) ，存储用户信息
                 .claim("id", id)
                 .claim("userName", userName)
-
                 //3.签名哈希部分
                 //签名哈希部分是对上面两部分数据签名，通过指定的算法生成哈希，以确保数据不会被篡改。
                 //首先，需要指定一个密码（secret）。该密码仅仅为保存在服务器中，并且不能向用户公开。然后，使用
